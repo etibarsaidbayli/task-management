@@ -1,12 +1,16 @@
 <template>
-    <h1>CreateListPage</h1>
+  <h1>CreateListPage</h1>
+  <TaskForm />
 </template>
 
 <script>
+import TaskForm from "../components/TaskForm.vue";
 
+export default {
+  components: {
+    TaskForm,
+  },
+};
 </script>
 
-<style>
-
-    
-</style>
+<style></style>

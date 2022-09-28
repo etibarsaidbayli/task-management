@@ -1,13 +1,14 @@
 <template>
   <h1>TaskLIST PAGE</h1>
-  <ul class="task__wrapper">
+  <ul v-if="$store.getters.getAllTasks.length" class="task__wrapper">
     <TaskItem
       v-for="task in $store.getters.getAllTasks"
       :key="task.id"
       :task="task"
     />
   </ul>
-  <div class="taskList__wrapper"></div>
+  <div v-else="!$store.getters.getAllTasks.length">Yeni tapshiriq <router-link to="/createtask"> Elave </router-link>etmek isteyirsinizmi?</div>
+
 </template>
 
 <script>

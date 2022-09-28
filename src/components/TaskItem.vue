@@ -1,16 +1,42 @@
 <template>
   <lI class="task__item">
     <div class="task__item-titleBox">
-      <input class="task__item-checkbox" type="checkbox" />
-      {{ task.title }}
-      <button @click="test" class="task__editBtn">Redakte</button>
+      <input 
+      v-show="!editTitle" 
+      class="task__item-checkbox" 
+      type="checkbox" />
+      <strong v-if="!editTitle">
+        {{ task.title }}
+      </strong>
+      <input 
+      v-model="editInputValue"
+      v-if="editTitle" 
+      class="task__item__editInput" 
+      type="text" />
+      <button v-if="!editTitle" @click="openEditTitle" class="task__editBtn">
+        Redakte
+      </button>
+      <button 
+      v-if="editTitle" 
+      @click="closeEditTitle"
+      class="task__editBtn task__saveBtn">Save</button>
     </div>
     <div class="task__item-tags">
-      <div class="task__item-spans">
-        <TagItem v-for="tag in task.tags" :key="tag" :tag="tag" />
+      <div v-if="task.tags.length" class="task__item-spans">
+        <TagItem
+          :tags="task.tags"
+          v-for="(tag, index) in task.tags"
+          :key="index"
+          :index="index"
+          :tag="tag"
+          :editTag="editTag"
+        />
+      </div>
+      <div v-show="!task.tags.length">
+        <strong> &#128540</strong>
       </div>
 
-      <button v-if="!editTag" @click="setEditTag" class="task__editBtn">
+      <button v-if="!editTag" @click="openEditTag" class="task__editBtn">
         Redakte
       </button>
       <button
@@ -21,8 +47,9 @@
         Save
       </button>
     </div>
+
     <div>
-      <button class="task__deleteBtn">Sil</button>
+      <button @click="deleteTask(task.id)" class="task__deleteBtn">Sil</button>
     </div>
   </lI>
 </template>
@@ -30,6 +57,8 @@
 <script>
 import TagItem from "../components/TagItem.vue";
 export default {
+ 
+  
   components: {
     TagItem,
   },
@@ -42,10 +71,12 @@ export default {
   data() {
     return {
       editTag: false,
+      editTitle: false,
+      editInputValue:""
     };
   },
   methods: {
-    setEditTag() {
+    openEditTag() {
       console.log("set edit tag ishleyir");
       this.editTag = true;
     },
@@ -57,6 +88,21 @@ export default {
       console.log("test is worked");
       console.log(this.task.tags);
     },
+    openEditTitle() {
+      console.log("openEditTitle is worked");
+      this.editTitle = true;
+    },
+    closeEditTitle (){
+      console.log("closeEditTitle is worked");
+      this.editTitle = false;
+      this.$store.commit('changeTitle',{newTitle:this.editInputValue,id:this.task.id})
+ 
+    },
+    deleteTask(id) {
+      console.log(id);
+      this.$store.commit("removeTask", id);
+    },
+
   },
 };
 </script>
@@ -118,5 +164,12 @@ export default {
   color: #fff;
   font-size: 15px;
   border-radius: 8px;
+}
+
+.task__item__editInput {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-size:18[x];
 }
 </style>

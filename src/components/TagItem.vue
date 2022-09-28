@@ -1,16 +1,44 @@
 <template>
   <span class="task__tag">
     {{ tag }}
-    <button class="task__tag-delete">X</button>
+    <button @click="deleteTag(index)"
+   
+    v-show="editTag" class="task__tag-delete">
+      X
+    </button>
+ 
   </span>
 </template>
 
 <script>
 export default {
+  data() {
+    myTags: [];
+  },
   props: {
     tag: {
       type: String,
       required: true,
+    },
+    index: {
+      type: String,
+      required: true,
+    },
+    tags: {
+      type: Array,
+      required: true,
+    },
+    editTag: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  methods: {
+    deleteTag(i) {
+      console.log("delete tag is worked", i);
+      this.myTags = this.tags;
+      console.log(this.myTags);
+      this.myTags.splice(i, 1);
     },
   },
 };
