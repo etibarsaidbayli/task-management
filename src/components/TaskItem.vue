@@ -1,7 +1,9 @@
 <template>
-  <lI class="task__item">
+  <lI 
+  :class="[task.isCompleted ? 'task__item completee' : 'task__item']">
     <div class="task__item-titleBox">
       <input 
+      v-model="task.isCompleted"
       v-show="!editTitle" 
       class="task__item-checkbox" 
       type="checkbox" />
@@ -105,6 +107,7 @@ export default {
       console.log(id);
       this.$store.commit("removeTask", id);
     },
+  
 
   },
 };
@@ -129,6 +132,11 @@ export default {
 .task__item-titleBox {
   font-weight: bold;
   font-size: 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:15px;
 }
 
 .task__editBtn {
@@ -158,6 +166,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  padding:19px;
   max-width: 200px;
  
 }
@@ -177,5 +186,11 @@ export default {
   margin-right: 10px;
   border-radius: 8px;
   font-size:18px;
+}
+
+.completee {
+  /* background: rgba(0,0,0,0.1); */
+  opacity: .2;
+  padding:0 15px;
 }
 </style>

@@ -51,7 +51,7 @@ export default {
 <style>
 .task__tag {
   background-color: gray;
-
+ 
   padding: 10px;
   position: relative;
   display: inline-block;

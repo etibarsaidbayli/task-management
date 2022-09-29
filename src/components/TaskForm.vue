@@ -6,6 +6,7 @@
       class="form__input"
       type="text"
       placeholder="Bashliq"
+ 
     />
     <div class="input__box">
       <input
@@ -14,6 +15,7 @@
         class="form__input"
         type="text"
         placeholder="teqleri yaz"
+       
       />
 
       <button
@@ -23,7 +25,9 @@
       >
         Teg Elave et
       </button>
-      <div v-show="isSucsessAddTag">daxil etdiyiniz tag elave olundu</div>
+      <div class="sucsess__add_message" v-show="isSucsessAddTag">
+        tag elave olundu !
+      </div>
     </div>
     <button
       :disabled="!titleInput.length || !titleInput.trim()"
@@ -32,7 +36,9 @@
     >
       Tapshiriq yarat
     </button>
-    <div v-show="isSucsessAddTask">Tapshiriq yaradildi</div>
+    <div class="sucsess__add_message" v-show="isSucsessAddTask">
+      Tapshiriq yaradildi ! <router-link to="/taskslist"> bah </router-link>
+    </div>
   </form>
 </template>
 
@@ -53,6 +59,7 @@ export default {
       this.titleInput = e.target.value;
     },
     tagInputChange(e) {
+    
       this.isSucsessAddTag = false;
       this.tagInput = e.target.value;
     },
@@ -66,30 +73,28 @@ export default {
         isCompleted: false,
       };
       if (newTask.tags.length === 0) {
-        return alert("bosh teg xanasi olmaz");
+        return alert("zehmet olmasa teg elave et");
       }
       this.titleInput = "";
       this.isSucsessAddTask = true;
-      this.$store.commit("addTask", newTask);
+      this.$store.commit("addTask", newTask)
     },
     testChildForm() {
       console.log("child form is clicked");
-       // add bonus functional
-
+      // add bonus functional
 
       this.tags.push(this.tagInput);
-      
 
       this.isSucsessAddTag = true;
       this.tagInput = "";
     },
   },
-};  
+};
 </script>
 
 <style scoped>
 #form {
-  padding:30px 0;
+  padding: 30px 0;
   display: flex;
   gap: 15px;
   flex-direction: column;
@@ -109,10 +114,7 @@ export default {
 }
 
 .input__box {
-
-
   width: 50%;
-  
 }
 
 .form__btn:disabled {
@@ -122,13 +124,27 @@ export default {
 .add__tag {
   margin-left: 15px;
   background-color: cornflowerblue;
-  width:200px;
+  width: 200px;
 }
 
 .form__input {
   font-size: 22px;
   padding: 5px;
   border-radius: 8px;
-  width:50%;
+  width: 50%;
+}
+
+.sucsess__add_message {
+  background-color: aliceblue;
+  font-weight: bold;
+  color: #000;
+  margin-top: 10px;
+  font-size: 15px;
+  padding: 3px;
+}
+
+.sucsess__add_message a {
+  color:yellowgreen;
+    text-decoration: underline;
 }
 </style>
