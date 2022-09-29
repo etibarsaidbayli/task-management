@@ -1,6 +1,6 @@
 <template>
   <nav class="nav__">
-    <router-link to="/createtask">Yeni tapşırıqların yaradılması</router-link>
+    <router-link to="/createtask" isActive="true">Yeni tapşırıqların yaradılması</router-link>
     <router-link to="/taskslist">Mövcud tapşırıqların siyahısı</router-link>
   </nav>
 </template>
@@ -17,11 +17,19 @@
 }
 
 .nav__ a {
-  border: 1px solid green;
+  border: 1px solid orangered;
   display: inline-block;
   padding: 10px 5px;
   color: rgb(44, 23, 91);
   font-size: 30px;
   font-weight: bold;
+}
+
+
+
+.router-link-active, .router-link-exact-active {
+  background-color:yellowgreen;
+  color:#fff !important
+  
 }
 </style>

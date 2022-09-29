@@ -1,5 +1,5 @@
 <template>
-  <h1>TaskLIST PAGE</h1>
+
   <ul v-if="$store.getters.getAllTasks.length" class="task__wrapper">
     <TaskItem
       v-for="task in $store.getters.getAllTasks"
@@ -7,7 +7,7 @@
       :task="task"
     />
   </ul>
-  <div v-else="!$store.getters.getAllTasks.length">Yeni tapshiriq <router-link to="/createtask"> Elave </router-link>etmek isteyirsinizmi?</div>
+  <div class="empty__wrap" v-else="!$store.getters.getAllTasks.length">Yeni tapshiriq <router-link to="/createtask"> elave </router-link>etmek isteyirsinizmi?</div>
 
 </template>
 
@@ -23,4 +23,22 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style >
+  .task__wrapper {
+    background-color: aliceblue;
+  }
+
+  .empty__wrap {
+    background-color: aliceblue;
+    font-size: 30px;
+    text-align: center;
+    padding:25px 0;
+  }
+
+  .empty__wrap a {
+    color:yellowgreen;
+    text-decoration: underline;
+  }
+
+
+</style>

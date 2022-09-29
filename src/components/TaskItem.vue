@@ -9,10 +9,13 @@
         {{ task.title }}
       </strong>
       <input 
-      v-model="editInputValue"
+      v-model="editInputValue" 
+      
       v-if="editTitle" 
       class="task__item__editInput" 
-      type="text" />
+      type="text" 
+      placeholder="yeni bashliq"
+      />
       <button v-if="!editTitle" @click="openEditTitle" class="task__editBtn">
         Redakte
       </button>
@@ -96,7 +99,7 @@ export default {
       console.log("closeEditTitle is worked");
       this.editTitle = false;
       this.$store.commit('changeTitle',{newTitle:this.editInputValue,id:this.task.id})
- 
+      
     },
     deleteTask(id) {
       console.log(id);
@@ -144,8 +147,10 @@ export default {
 
 .task__item-tags {
   display: flex;
+  
   align-items: center;
   gap: 10px;
+  
 }
 
 .task__item-spans {
@@ -154,6 +159,7 @@ export default {
   flex-wrap: wrap;
   gap: 5px;
   max-width: 200px;
+ 
 }
 
 .task__deleteBtn {
@@ -170,6 +176,6 @@ export default {
   padding: 5px;
   margin-right: 10px;
   border-radius: 8px;
-  font-size:18[x];
+  font-size:18px;
 }
 </style>

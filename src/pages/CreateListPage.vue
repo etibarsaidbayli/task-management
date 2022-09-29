@@ -1,5 +1,5 @@
 <template>
-  <h1>CreateListPage</h1>
+
   <TaskForm />
 </template>
 

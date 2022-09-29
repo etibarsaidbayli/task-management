@@ -7,7 +7,7 @@
       type="text"
       placeholder="Bashliq"
     />
-    <div>
+    <div class="input__box">
       <input
         :value="tagInput"
         @input="tagInputChange"
@@ -74,23 +74,28 @@ export default {
     },
     testChildForm() {
       console.log("child form is clicked");
+       // add bonus functional
+
 
       this.tags.push(this.tagInput);
-      // this.$store.commit("setTaskTags", this.tags);
+      
 
       this.isSucsessAddTag = true;
       this.tagInput = "";
     },
   },
-};
+};  
 </script>
 
 <style scoped>
 #form {
+  padding:30px 0;
   display: flex;
   gap: 15px;
   flex-direction: column;
   justify-content: center;
+
+  align-items: center;
 }
 
 .form__btn {
@@ -103,6 +108,13 @@ export default {
   color: #fff;
 }
 
+.input__box {
+
+
+  width: 50%;
+  
+}
+
 .form__btn:disabled {
   opacity: 0.5;
 }
@@ -110,11 +122,13 @@ export default {
 .add__tag {
   margin-left: 15px;
   background-color: cornflowerblue;
+  width:200px;
 }
 
 .form__input {
   font-size: 22px;
   padding: 5px;
   border-radius: 8px;
+  width:50%;
 }
 </style>

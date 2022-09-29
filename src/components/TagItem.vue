@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { store } from '../store';
+
 export default {
   data() {
     myTags: [];
@@ -37,8 +39,10 @@ export default {
     deleteTag(i) {
       console.log("delete tag is worked", i);
       this.myTags = this.tags;
-      console.log(this.myTags);
+      
       this.myTags.splice(i, 1);
+      localStorage.setItem('tasks',JSON.stringify(this.$store.getters.getAllTasks) )
+      
     },
   },
 };
