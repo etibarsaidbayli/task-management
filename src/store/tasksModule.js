@@ -25,7 +25,6 @@ export default {
     getAllTasks(state) {
       return state.tasks;
     },
-   
   },
   actions: {},
 };

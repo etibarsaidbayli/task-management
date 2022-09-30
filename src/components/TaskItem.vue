@@ -4,6 +4,7 @@
     <div class="task__item-titleBox">
       <input 
       v-model="task.isCompleted"
+      
       v-show="!editTitle" 
       class="task__item-checkbox" 
       type="checkbox" />
@@ -24,6 +25,7 @@
       <button 
       v-if="editTitle" 
       @click="closeEditTitle"
+      :disabled="!editInputValue.length || !editInputValue.trim()"
       class="task__editBtn task__saveBtn">Save</button>
     </div>
     <div class="task__item-tags">
@@ -108,6 +110,7 @@ export default {
       this.$store.commit("removeTask", id);
     },
   
+  
 
   },
 };
@@ -153,6 +156,9 @@ export default {
   background-color: yellowgreen;
 }
 
+.task__saveBtn:disabled {
+  opacity: .5;
+}
 .task__item-tags {
   display: flex;
   

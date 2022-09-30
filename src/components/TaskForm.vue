@@ -37,7 +37,7 @@
       Tapshiriq yarat
     </button>
     <div class="sucsess__add_message" v-show="isSucsessAddTask">
-      Tapshiriq yaradildi ! <router-link to="/taskslist"> bah </router-link>
+      Tapshiriq yaradildi ! <router-link to="/taskslist"> BAX </router-link>
     </div>
   </form>
 </template>

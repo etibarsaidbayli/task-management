@@ -20,9 +20,10 @@
   border: 1px solid orangered;
   display: inline-block;
   padding: 10px 5px;
-  color: rgb(44, 23, 91);
+  color: rgb(170, 252, 207);
   font-size: 30px;
   font-weight: bold;
+  border-radius: 8px;
 }
 
 

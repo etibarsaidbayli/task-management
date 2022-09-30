@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,6 +16,7 @@ a{
 
 body {
   background-color: teal;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
