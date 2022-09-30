@@ -15,7 +15,6 @@ export default {
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     changeTitle(state, payload) {
-      console.log(payload);
       let findedTitle = state.tasks.find((task) => task.id === payload.id);
       findedTitle.title = payload.newTitle;
       localStorage.setItem("tasks", JSON.stringify(state.tasks));

@@ -1,17 +1,13 @@
 <template>
   <span class="task__tag">
     {{ tag }}
-    <button @click="deleteTag(index)"
-   
-    v-show="editTag" class="task__tag-delete">
+    <button @click="deleteTag(index)" v-show="editTag" class="task__tag-delete">
       X
     </button>
- 
   </span>
 </template>
 
 <script>
-import { store } from '../store';
 
 export default {
   data() {
@@ -37,12 +33,12 @@ export default {
   },
   methods: {
     deleteTag(i) {
-      console.log("delete tag is worked", i);
       this.myTags = this.tags;
-      
       this.myTags.splice(i, 1);
-      localStorage.setItem('tasks',JSON.stringify(this.$store.getters.getAllTasks) )
-      
+      localStorage.setItem(
+        "tasks",
+        JSON.stringify(this.$store.getters.getAllTasks)
+      );
     },
   },
 };
@@ -51,7 +47,7 @@ export default {
 <style>
 .task__tag {
   background-color: gray;
- 
+
   padding: 10px;
   position: relative;
   display: inline-block;

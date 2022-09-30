@@ -6,7 +6,6 @@
       class="form__input"
       type="text"
       placeholder="Bashliq"
- 
     />
     <div class="input__box">
       <input
@@ -15,7 +14,6 @@
         class="form__input"
         type="text"
         placeholder="teqleri yaz"
-       
       />
 
       <button
@@ -59,13 +57,10 @@ export default {
       this.titleInput = e.target.value;
     },
     tagInputChange(e) {
-    
       this.isSucsessAddTag = false;
       this.tagInput = e.target.value;
     },
     testParentForm() {
-      console.log("parent form is clicked");
-
       const newTask = {
         id: Date.now(),
         title: this.titleInput,
@@ -77,10 +72,10 @@ export default {
       }
       this.titleInput = "";
       this.isSucsessAddTask = true;
-      this.$store.commit("addTask", newTask)
+      this.$store.commit("addTask", newTask);
     },
     testChildForm() {
-      console.log("child form is clicked");
+   
       // add bonus functional
 
       this.tags.push(this.tagInput);
@@ -144,7 +139,7 @@ export default {
 }
 
 .sucsess__add_message a {
-  color:yellowgreen;
-    text-decoration: underline;
+  color: yellowgreen;
+  text-decoration: underline;
 }
 </style>

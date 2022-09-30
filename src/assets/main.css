@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&display=swap");
 
 * {
   box-sizing: border-box;
@@ -10,16 +10,16 @@ li {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 body {
   background-color: teal;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
   width: 1136px;
-  margin:0 auto;
+  margin: 0 auto;
 }

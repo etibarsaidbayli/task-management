@@ -84,29 +84,21 @@ export default {
   },
   methods: {
     openEditTag() {
-      console.log("set edit tag ishleyir");
       this.editTag = true;
     },
     closeEditTag() {
-      console.log("close edit tag ishleyir");
       this.editTag = false;
     },
-    test() {
-      console.log("test is worked");
-      console.log(this.task.tags);
-    },
+  
     openEditTitle() {
-      console.log("openEditTitle is worked");
       this.editTitle = true;
     },
     closeEditTitle (){
-      console.log("closeEditTitle is worked");
       this.editTitle = false;
       this.$store.commit('changeTitle',{newTitle:this.editInputValue,id:this.task.id})
       
     },
     deleteTask(id) {
-      console.log(id);
       this.$store.commit("removeTask", id);
     },
   

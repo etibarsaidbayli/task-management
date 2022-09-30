@@ -1,6 +1,8 @@
 <template>
   <nav class="nav__">
-    <router-link to="/createtask" isActive="true">Yeni tapşırıqların yaradılması</router-link>
+    <router-link to="/createtask" isActive="true"
+      >Yeni tapşırıqların yaradılması</router-link
+    >
     <router-link to="/taskslist">Mövcud tapşırıqların siyahısı</router-link>
   </nav>
 </template>
@@ -26,11 +28,9 @@
   border-radius: 8px;
 }
 
-
-
-.router-link-active, .router-link-exact-active {
-  background-color:yellowgreen;
-  color:#fff !important
-  
+.router-link-active,
+.router-link-exact-active {
+  background-color: yellowgreen;
+  color: #fff !important;
 }
 </style>
