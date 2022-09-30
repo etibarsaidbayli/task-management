@@ -9,7 +9,7 @@
     <button
     class="allViewBtn"
     @click="AllTasksView"
-    >Hamisini goster</button>
+    >Butun tasklar </button>
   </ul>
   <div class="empty__wrap" v-else="!$store.getters.getAllTasks.length">Yeni tapshiriq <router-link to="/createtask"> elave </router-link>etmek isteyirsinizmi?</div>
 
@@ -55,7 +55,13 @@ export default {
   .allViewBtn {
     position:absolute;
     top:0;
-    right: 0;
+    right: 50px;
+    background-color:rgb(54, 55, 54);
+    padding:3px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    color:#b0f000;
   }
 
 </style>

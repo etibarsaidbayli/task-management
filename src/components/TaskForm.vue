@@ -23,6 +23,9 @@
       >
         Teg Elave et
       </button>
+      <ul class="tagsView__wrapper" v-show="tagInput.length">
+        <li v-for="(t,i) in tagsView" :key="i">{{t}}</li>
+      </ul>
       <div class="sucsess__add_message" v-show="isSucsessAddTag">
         tag elave olundu !
       </div>
@@ -49,16 +52,26 @@ export default {
       tags: [],
       isSucsessAddTag: false,
       isSucsessAddTask: false,
+      tagsView:[]
     };
   },
+  watch: {
+    tagInput (value) {
+      this.inputListView(value)
+    }
+  }
+  ,
   methods: {
     titleInputChange(e) {
       this.isSucsessAddTask = false;
       this.titleInput = e.target.value;
     },
     tagInputChange(e) {
+      
       this.isSucsessAddTag = false;
       this.tagInput = e.target.value;
+      this.tagsView=[]
+      
     },
     testParentForm() {
       const newTask = {
@@ -83,6 +96,19 @@ export default {
       this.isSucsessAddTag = true;
       this.tagInput = "";
     },
+    inputListView (value) {
+      let localTasks = JSON.parse(localStorage.getItem('tasks'))
+      localTasks.forEach((item) => {
+        
+          item.tags.forEach((tag) => {
+            if(tag.startsWith(value)) {
+              console.log(tag + ' burdu ')
+              this.tagsView.push(tag)
+            }
+          })
+      })
+    }
+    
   },
 };
 </script>
@@ -141,5 +167,14 @@ export default {
 .sucsess__add_message a {
   color: yellowgreen;
   text-decoration: underline;
+}
+
+.tagsView__wrapper {
+  margin-top:5px;
+  width: 50%;
+  background-color: white;
+}
+.tagsView__wrapper li {
+  padding:3px;
 }
 </style>

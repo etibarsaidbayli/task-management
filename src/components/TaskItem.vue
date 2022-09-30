@@ -4,7 +4,6 @@
     <div class="task__item-titleBox">
       <input 
       v-model="task.isCompleted"
-      
       v-show="!editTitle" 
       class="task__item-checkbox" 
       type="checkbox" />
