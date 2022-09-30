@@ -1,7 +1,9 @@
 <template>
-  <span class="task__tag">
+  <span class="task__tag"
+  @click="currentFilterTasks(tag)"
+  >
     {{ tag }}
-    <button @click="deleteTag(index)" v-show="editTag" class="task__tag-delete">
+    <button @click.stop.prevent="deleteTag(index)" v-show="editTag" class="task__tag-delete">
       X
     </button>
   </span>
@@ -33,6 +35,8 @@ export default {
   },
   methods: {
     deleteTag(i) {
+     
+      console.log('deleted worked' , i )
       this.myTags = this.tags;
       this.myTags.splice(i, 1);
       localStorage.setItem(
@@ -40,6 +44,11 @@ export default {
         JSON.stringify(this.$store.getters.getAllTasks)
       );
     },
+    currentFilterTasks(currentTag) {
+      console.log('current tag worked')
+      this.$store.commit("currentFilter",currentTag)
+      
+    } 
   },
 };
 </script>
@@ -53,6 +62,7 @@ export default {
   display: inline-block;
   border-radius: 15px;
   color: #fff;
+  cursor: pointer;
 }
 
 .task__tag-delete {

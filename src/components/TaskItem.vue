@@ -79,7 +79,8 @@ export default {
     return {
       editTag: false,
       editTitle: false,
-      editInputValue:""
+      editInputValue:"",
+      
     };
   },
   methods: {

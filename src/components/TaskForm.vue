@@ -73,9 +73,9 @@ export default {
       this.titleInput = "";
       this.isSucsessAddTask = true;
       this.$store.commit("addTask", newTask);
+      this.$router.push("/taskslist");
     },
     testChildForm() {
-   
       // add bonus functional
 
       this.tags.push(this.tagInput);
